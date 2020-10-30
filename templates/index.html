@@ -1,0 +1,670 @@
+{% extends 'Root.html'%}{%load static%} {%block content%} {%csrf_token%}
+<div class="content-wrap">
+    <div class="container bottommargin clearfix">
+        <div class="col_one_third nobottommargin">
+            <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
+                <div class="fbox-icon">
+                    <i class="icon-line2-home"></i>
+                </div>
+                <h3 class="ls0 t400 nott" style="font-size: 20px;">Commercial &amp; Personal Use</h3>
+                <p style="font-size: 16px;">Proactively reintermediate B2C infomediaries before multimedia methods of empowerment.</p>
+            </div>
+        </div>
+        <div class="col_one_third nobottommargin">
+            <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
+                <div class="fbox-icon">
+                    <i class="icon-line2-compass"></i>
+                </div>
+                <h3 class="ls0 t400 nott" style="font-size: 20px;">Vaastu Compliant</h3>
+                <p style="font-size: 16px;">Uniquely formulate principle-centered applications after just in time opportunities.</p>
+            </div>
+        </div>
+        <div class="col_one_third nobottommargin col_last">
+            <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
+                <div class="fbox-icon">
+                    <i class="icon-line2-directions"></i>
+                </div>
+                <h3 class="ls0 t400 nott" style="font-size: 20px;">Great Location</h3>
+                <p style="font-size: 16px;">Collaboratively reinvent ubiquitous functionalities vis future-proof systems.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container clearfix">
+
+        <!-- Shop Categories
+            ============================================= -->
+        <div class="fancy-title title-dotted-border title-center mb-4">
+            <h2>
+                Popular
+                <span>Categories</span>
+            </h2>
+        </div>
+        <div class="row shop-categories clearfix">
+
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="row bottommargin clearfix">
+            <div class="col-lg-7 clearfix">
+                <div class="fancy-title title-border title-center mb-4">
+                    <h3>
+                        Choose your
+                        <span>Style</span>
+                    </h3>
+                </div>
+                <div class="row shop-categories-style clearfix" style="border-right: 3px solid #ddd;">
+
+                </div>
+            </div>
+            <div class="col-lg-5 clearfix">
+                <div class="fancy-title title-border title-center mb-4">
+                    <h3>
+                        Choose your
+                        <span>Type</span>
+                    </h3>
+                </div>
+                <div class="row shop-categories-type clearfix">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section clearfix">
+        <div class="container clear-bottommargin clearfix">
+            <div class="row topmargin-sm clearfix">
+                <div class="col-lg-7 bottommargin">
+                    <div class="fancy-title title-border">
+                        <h3>
+                            Add Your
+                            <span>Additional</span>
+                        </h3>
+                    </div>
+                    <div class="">
+                        <input id="checkbox-10" class="checkbox-style checkbox-file" name="checkbox-10" type="checkbox">
+                        <label for="checkbox-10" class="checkbox-style-3-label">INCLUDE FILE .AI, .SVG,
+                            .EPS <span id="add-price">+$5</span></label>
+                    </div>
+                    <div class="">
+                        <input id="checkbox-11" class="checkbox-style checkbox-acc" name="checkbox-11" type="checkbox">
+                        <label for="checkbox-11" class="checkbox-style-3-label">REMOVE ACCESORIES<span
+                                id="add-price">+$5</span></label>
+                    </div>
+                    <div class="">
+                        <input id="checkbox-12" class="checkbox-style checkbox-fast" name="checkbox-12" type="checkbox">
+                        <label for="checkbox-12" class="checkbox-style-3-label">EXTRA FAST ORDER 24
+                            HOURS<span id="add-price">+$5</span></label>
+                    </div>
+                </div>
+                <div class="col-lg-5 bottommargin">
+                    <div class="fancy-title title-border title-right">
+                        <h3>Upload Your
+                            <span>Images</span>
+                        </h3>
+                    </div>
+                    <form class="row" action="" method="POST" id="form-send" enctype="multipart/form-data" style="display: block;">
+
+                        <div class="row form-group">
+                            <label for="quantity" class="col-sm-4 col-form-label">Upload Image</label>
+                            <div class="">
+                                <input id="image" type="file" accept="image/*" class="file-loading" data-allowed-file-extensions='[]' data-show-preview="false" name="file[]">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="checkout">
+                                <button onClick="f()" type="button" class="btn btn-primary">Checkout</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfix" id="cart" style="display: none;">
+        <div class="form-widget">
+            <!-- <form class="row" action="" method="POST" id="form-send" enctype="multipart/form-data"> -->
+            <div class="col-xl-5">
+                <div class="fancy-title title-dotted-border title-center">
+                    <h3>
+                        <span>CART</span> CONFIRM
+                    </h3>
+                </div>
+                <div class="list-cart">
+                    <div class="col content-user-cart">
+                        <input id="content-user-cart" class="text-style" name="user_id" type="text" hidden>
+                    </div>
+                    <div class="row">
+                        <div class="col title-category-cart">
+                            CATEGORY
+                        </div>
+                        <div class="col content-category-cart">
+                            <input id="content-category-cart" class="text-style" name="category_id" type="text" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col title-style-cart">
+                            STYLE
+                        </div>
+                        <div class="col content-style-cart">
+                            <input id="content-style-cart" class="text-style" name="style_id" type="text" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col title-type-cart">
+                            TYPE
+                        </div>
+                        <div class="col content-type-cart">
+                            <input id="content-type-cart" class="text-style" name="types_id" type="text" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col title-cart">
+                            INCLUDE FILE .AI, .SVG, .EPS
+                        </div>
+                        <div class="col content-file-cart">
+                            <div class="checkbox-file-cart">
+                                <input id="checkbox-file-cart" class="checkbox-style" name="is_include_file" type="checkbox" data-id="" disabled>
+                                <label class="checkbox-style-3-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col title-cart">
+                            REMOVE ACCESORIES
+                        </div>
+                        <div class="col content-acc-cart">
+                            <div class="checkbox-acc-cart">
+                                <input id="checkbox-acc-cart" class="checkbox-style" name="is_remove_acc" type="checkbox" data-id="" disabled>
+                                <label class="checkbox-style-3-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col title-cart">
+                            EXTRA FAST ORDER 24 HOURS
+                        </div>
+                        <div class="col content-fast-cart">
+                            <div class="checkbox-fast-cart">
+                                <input id="checkbox-fast-cart" class="checkbox-style" name="is_fast" type="checkbox" data-id="" disabled>
+                                <label class="checkbox-style-3-label"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col title-total-cart">
+                            TOTAL
+                        </div>
+                        <div class="col content-total-cart">
+                            <input id="content-total-cart" class="text-style" name="total" type="text">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col content-total-cart">
+                            <input id="order_id" class="text-style" name="total" type="text" hidden>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col content-total-cart">
+                            <input id="total_pay" class="text-style" name="total" type="text" hidden>
+                        </div>
+                    </div>
+                    <!-- <div class="row form-group">
+                        <label for="quantity" class="col-sm-4 col-form-label">Upload Image</label>
+                        <div class="">
+                            <input id="input-file" type="file" accept="image/*" class="file-loading"
+                                data-allowed-file-extensions='[]' data-show-preview="false" name="order_image">
+                        </div>
+                    </div> -->
+                </div>
+                <div class="row form-group">
+                    <div class="pay">
+                        <button type="button" class="btn btn-primary">Pay</button>
+                    </div>
+                </div>
+            </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+{%endblock content%} {%block script%}
+<script>
+    let temp_categories = []
+    let temp_style = []
+        // console.log($('#temp_user').val())
+
+    $(document).ready(function() {
+        $.ajax({
+            url: 'http://api.creativectors.com/carousel',
+            method: 'get',
+            success: function(data) {
+
+                $.each(data, function(k, v) {
+                    // console.log(v)
+                    let carousel = `
+                        <div class="swiper-slide dark"
+                            style="background: url('${v.carousel_image}') no-repeat center 20%; background-size: cover">
+                            <div class="container clearfix">
+                                <div class="slider-caption slider-caption-center">
+                                    <div class="h5 mb-2 font-secondary">${v.carousel_text}</div>
+                                    <h2 class="bottommargin-sm text-white">We are OPEN</h2>
+                                    <a href="#" class="button bg-white text-dark button-light">SHOP NOW</a>
+                                </div>
+                            </div>
+                        </div>
+                        `
+                    $('.swiper-wrapper').append(carousel)
+                    let mySwiper = new Swiper('.swiper-container', {
+                        loop: true,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                    })
+                });
+            },
+        })
+
+        $.ajax({
+            url: 'http://api.creativectors.com/menu/',
+            method: 'get',
+            success: function(data) {
+                fillTempCategories(data)
+                fillTempStyle(data)
+                fillTempType(data)
+            },
+        })
+
+        $('#login-form-submit').click(function() {
+            let email = $("#login-form-email").val()
+            let password = $("#login-form-password").val()
+            $.ajax({
+                    method: "post",
+                    url: 'http://api.creativectors.com/login/',
+                    data: {
+                        email: email,
+                        password: password
+                    },
+                    success: function(data) {
+                        // console.log(data.user.email)
+                        localStorage.setItem("token", "Token " + data.token);
+                        localStorage.setItem("user", data.user.email);
+                        $('#temp_user').val(data.user.email)
+                            // console.log($('#temp_user').val(data.user.email))
+                        location.replace("{% url 'home' %}")
+                    },
+                    error: function(data) {
+                        alert('err')
+                    }
+                })
+                // console.log($("#login-form-email").val())
+        })
+
+        $('#register-form-submit').click(function() {
+            let email = $("#register-form-email").val()
+            let name = $("#register-form-name").val()
+            let password = $("#register-form-password").val()
+                // alert(email,name,password)
+            $.ajax({
+                    method: "post",
+                    url: 'http://api.creativectors.com/register/',
+                    data: {
+                        email: email,
+                        full_name: name,
+                        password: password
+                    },
+                    success: function(data) {
+                        // console.log('ok')
+                        localStorage.setItem("token", data.token);
+                        localStorage.setItem("user", data.user.email);
+                        // $('#temp_user').val(data.user.email)
+                        // console.log($('#temp_user').val(data.user.email))
+                        location.replace("{% url 'home' %}")
+                    },
+                    error: function(data) {
+                        // alert('err')
+                    }
+                })
+                // console.log($("#login-form-email").val())
+        })
+
+        $('#menu-login').click(function() {
+            // console.log('saas')
+        })
+
+        if (localStorage.getItem("token")) {
+            $('#menu-login').hide()
+            $('#menu-register').hide()
+            $('#menu-logout').show()
+        } else {
+            $('#menu-register').show()
+            $('#menu-login').show()
+            $('#menu-logout').hide()
+        }
+
+        $('#menu-logout').click(function() {
+            localStorage.removeItem('token')
+            localStorage.removeItem('user')
+            location.replace("{% url 'home' %}")
+        })
+
+
+
+        $(document).on('click', '.click-category', function() {
+            $('.click-category').removeClass('selected')
+            $(this).addClass('selected')
+            $('.shop-categories-style').empty()
+            let style = temp_categories[$(this).attr('data-id')].categories
+                // let temp_style = [style.cateories]
+
+            $.each(style, function(k, v) {
+                    let show_style = `
+                        <div class="col-lg-4 mb-4 click-style" data-id="${v.id}" data-name="${v.style_name}" data-price="${v.style_price}">
+                                <a 
+                                    style="background: url('${v.style_icon}') no-repeat center center; background-size: cover; cursor: pointer;">
+                                    <div class="vertical-middle dark center">
+                                        <div class="heading-block nomargin noborder">
+                                            <h3 class="nott t600 ls0">${v.style_name}</h3>
+                                            <h4 class="nott t900 ls0" style="background-color: #b7a7a7; padding: 3px; width: 40px;">$${v.style_price}</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            `
+                    $('.shop-categories-style').append(show_style)
+                    temp_style[v.id] = v
+                })
+                // console.log(v)
+        })
+
+        $(document).on('click', '.click-style', function() {
+            // console.log(temp_style[$(this).attr('style-id')].styles)
+            $('.click-style').removeClass('selected')
+            $(this).addClass('selected')
+            $('.shop-categories-type').empty()
+            let type = temp_style[$(this).attr('data-id')].styles
+            $.each(type, function(k, v) {
+                // console.log(v)
+                let show_type = `
+                     <div class="col-lg-6 mb-4 click-type" data-id="${v.id}" data-name="${v.type_name}" data-price="${v.type_extra}">
+                        <a 
+                            style="background: url('${v.type_icon}') no-repeat center center; background-size: cover; cursor: pointer;">
+                            <div class="vertical-middle dark center">
+                                <div class="heading-block nomargin noborder">
+                                    <h3 class="nott t600 ls0">${v.type_name}</h3>
+                                    <h4 class="nott t900 ls0" style="background-color: #b7a7a7; padding: 3px; width: 40px;">$${v.type_extra}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                `
+                $('.shop-categories-type').append(show_type)
+            })
+
+        })
+
+        $(document).on('click', '.click-type', function() {
+            $('.click-type').removeClass('selected')
+            $(this).addClass('selected')
+        })
+
+        // $('.checkbox-file').on('change',function(){
+        //     $('#checkbox-10').prop('checked', false)
+        // })
+        // console.log(temp_categories[$(this).attr('data-id')].categories)
+
+        $('.checkbox-file').click(function() {
+            if ($(this).hasClass('selected-check')) {
+                $(this).removeClass('selected-check')
+            } else {
+                $(this).addClass('selected-check')
+            }
+        })
+
+        $('.checkbox-acc').click(function() {
+            if ($(this).hasClass('selected-check')) {
+                $(this).removeClass('selected-chec')
+            } else {
+                $(this).addClass('selected-check')
+            }
+        })
+
+        $('.checkbox-fast').click(function() {
+            if ($(this).hasClass('selected-check')) {
+                $(this).removeClass('selected-check')
+            } else {
+                $(this).addClass('selected-check')
+            }
+        })
+
+        $('.pay').click(function() {
+            let cek_token = localStorage.getItem('token')
+            let cek_user = localStorage.getItem('user')
+
+            let total_pay = $('#total_pay').val()
+                // console.log(total_pay)
+            let order_id = $('#order_id').val()
+
+            $.ajax({
+                method: "POST",
+                url: 'http://api.creativectors.com/pay/',
+                headers: {
+                    'Authorization': cek_token,
+                },
+                data: {
+                    "order_id": order_id,
+                    "total": total_pay
+                },
+                success: function(data) {
+                    // alert('Order anda berhsail')
+                    // console.log(data)
+                    location.replace(data.url)
+                },
+                error: function(data) {
+                    // alert('err')
+                }
+            })
+        })
+    })
+
+
+
+    function f() {
+        let cek_category = $('.click-style').hasClass('selected')
+        let cek_style = $('.click-style').hasClass('selected')
+        let cek_type = $('.click-type').hasClass('selected')
+            // console.log(cek_style)
+
+        if (cek_style && cek_type && cek_category) {
+            $('#cart').show()
+            let category_selected = $('.click-category.selected').attr('data-name')
+            let id_category = $('.click-category.selected').attr('data-id')
+            let style_selected = $('.click-style.selected').attr('data-name')
+            let id_style = $('.click-style.selected').attr('data-id')
+            let type_selected = $('.click-type.selected').attr('data-name')
+            let id_type = $('.click-type.selected').attr('data-id')
+                // console.log(category_selected)
+                // console.log(id_style)
+                // console.log(id_type)
+
+            $('#content-category-cart').val(category_selected)
+            $('#content-style-cart').val(style_selected)
+            $('#content-type-cart').val(type_selected)
+
+
+            if ($('.checkbox-file').hasClass('selected-check')) {
+                $('#checkbox-file-cart').attr({
+                        'data-id': 1,
+                        'data-price': 5,
+                        'checked': 'checked'
+                    })
+                    // $('#checkbox-file-cart').setAttribute("checked");
+            } else {
+                $('#checkbox-file-cart').attr({
+                    'data-id': 0,
+                    'data-price': 0
+                })
+            }
+
+            if ($('.checkbox-acc').hasClass('selected-check')) {
+                $('#checkbox-acc-cart').attr({
+                    'data-id': 1,
+                    'data-price': 5,
+                    'checked': 'checked'
+                })
+            } else {
+                $('#checkbox-acc-cart').attr({
+                    'data-id': 0,
+                    'data-price': 0
+                })
+            }
+
+            if ($('.checkbox-fast').hasClass('selected-check')) {
+                $('#checkbox-fast-cart').attr({
+                    'data-id': 1,
+                    'data-price': 5,
+                    'checked': 'checked'
+                })
+            } else {
+                $('#checkbox-fast-cart').attr({
+                    'data-id': 0,
+                    'data-price': 0
+                })
+            }
+
+            let cek_token = localStorage.getItem('token')
+            let cek_user = localStorage.getItem('user')
+
+            if (cek_token !== !null && cek_user !== null) {
+                let category_id = $('.click-category.selected').attr('data-id')
+                let style_id = $('.click-style.selected').attr('data-id')
+                let types_id = $('.click-type.selected').attr('data-id')
+                let is_include_file = $('#checkbox-file-cart').attr('data-id')
+                let is_remove_acc = $('#checkbox-acc-cart').attr('data-id')
+                let is_fast = $('#checkbox-fast-cart').attr('data-id')
+                let total = $('#checkbox-total-cart').attr('data-id')
+                let user_id = localStorage.getItem('user')
+
+                let style_price = $('.click-style.selected').attr('data-price')
+                let types_price = $('.click-type.selected').attr('data-price')
+                let is_include_file_price = $('#checkbox-file-cart').attr('data-price')
+                let is_remove_acc_price = $('#checkbox-acc-cart').attr('data-price')
+                let is_fast_price = $('#checkbox-fast-cart').attr('data-price')
+
+                let total_price = Number(style_price) + Number(types_price) + Number(is_include_file_price) +
+                    Number(is_remove_acc_price) + Number(is_fast_price)
+                    // console.log(total_price)
+                    // console.log(is_include_file_price)
+                    // console.log(is_remove_acc_price)
+                    // console.log(is_fast_price)
+                $('#content-total-cart').val('$' + total_price)
+                $('#total_pay').val(total_price)
+
+                let image = $('#image').get(0).files[0];
+                let formData = new FormData();
+                formData.append("order_image", image)
+                formData.append("user_id", user_id)
+                formData.append("category_id", category_id)
+                formData.append("style_id", style_id)
+                formData.append("types_id", types_id)
+                formData.append("is_remove_acc", is_remove_acc)
+                formData.append("is_include_file", is_include_file)
+                formData.append("is_fast", is_fast)
+                formData.append("total", total_price)
+
+                let request = new XMLHttpRequest();
+                request.open("POST", "http://api.creativectors.com/checkout/");
+                request.setRequestHeader("Authorization", cek_token)
+                request.onload = function(oEvent, data) {
+                    if (request.status == 200) {
+                        // console.log('Sukses')
+                        let order_id_pay = JSON.parse((request.responseText))
+                        $('#order_id').val(order_id_pay.order_id)
+                    } else {
+                        // console.log(request.responseText)
+                    }
+                };
+                request.send(formData);
+            } else {
+                alert('Silahkan Login terlebih dahulu')
+            }
+        } else {
+            alert('Style dan Type tidak boleh kosong')
+        }
+    }
+
+    function fillTempCategories(data) {
+        $.each(data, function(k, v) {
+            // console.log(v.categories)
+            let categories = `
+            <div class="col-lg-4 click-category" data-id="${v.id}" data-name="${v.category_name}">
+                <a
+                    style="background: url('${v.category_icon}') no-repeat center center; background-size: cover; border-radius: 15px; cursor: pointer;">
+                    <div class="vertical-middle dark center">
+                    <div class="heading-block nomargin noborder">
+                        <h3 class="nott t600 ls0">${v.category_name}</h3>
+                    </div>
+                    </div>
+                </a>
+            </div>
+                `
+            $('.shop-categories').append(categories)
+
+            temp_categories[v.id] = v
+
+            // let category_id = ''
+            // if (category_id === )
+        });
+
+        // console.log(temp_categories)
+    }
+
+    function fillTempStyle() {
+        let style = temp_categories[$('.click-category').attr('data-id')]
+
+        $.each(style.categories, function(k, v) {
+            let show_style = `
+                        <div class="col-lg-4 mb-4 click-style" data-id="${v.id}" data-name="${v.style_name}" data-price="${v.style_price}">
+                                <a 
+                                    style="background: url('${v.style_icon}') no-repeat center center; background-size: cover; cursor: pointer;">
+                                    <div class="vertical-middle dark center">
+                                        <div class="heading-block nomargin noborder">
+                                            <h3 class="nott t600 ls0">${v.style_name}</h3>
+                                            <h4 class="nott t900 ls0" style="background-color: #b7a7a7; padding: 3px; width: 40px;">$${v.style_price}</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            `
+            $('.shop-categories-style').append(show_style)
+            temp_style[v.id] = v
+        })
+    }
+
+    function fillTempType() {
+        let type = temp_style[$('.click-style').attr('data-id')]
+
+        $.each(type.styles, function(k, v) {
+            let show_type = `
+                     <div class="col-lg-6 mb-4 click-type" data-id="${v.id}" data-name="${v.type_name}" data-price="${v.type_extra}">
+                        <a 
+                            style="background: url('${v.type_icon}') no-repeat center center; background-size: cover; cursor: pointer;">
+                            <div class="vertical-middle dark center">
+                                <div class="heading-block nomargin noborder">
+                                    <h3 class="nott t600 ls0">${v.type_name}</h3>
+                                    <h4 class="nott t900 ls0" style="background-color: #b7a7a7; padding: 3px; width: 40px;">$${v.type_extra}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                `
+            $('.shop-categories-type').append(show_type)
+        })
+    }
+</script>
+{%endblock script%}

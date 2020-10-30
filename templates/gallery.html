@@ -1,0 +1,54 @@
+{% extends 'Root.html'%}{%load static%} {%block content%} {%csrf_token%}
+<section>
+    <div class="wrapper">
+        <div class="images">
+
+        </div>
+    </div>
+</section>
+{%endblock content%} {%block script%}
+<script>
+    $(document).ready(function() {
+        if (localStorage.getItem("token")) {
+            $('#menu-login').hide()
+            $('#menu-register').hide()
+            $('#menu-logout').show()
+        } else {
+            $('#menu-register').show()
+            $('#menu-login').show()
+            $('#menu-logout').hide()
+        }
+
+        $('#menu-logout').click(function() {
+            localStorage.removeItem('token')
+            localStorage.removeItem('user')
+            location.replace("http://creativectors.com/home/index.html")
+        })
+
+        $.ajax({
+            url: 'http://api.creativectors.com/gallery',
+            method: 'get',
+            success: function(data) {
+                $.each(data, function(k, v) {
+                    let gallery = `
+                            <img src="${v.image_gallery}" data-id="${v.id}">
+                        `
+                    $('.images').append(gallery)
+                });
+            },
+
+        })
+        $(document).on('click', '.images img', function() {
+            $(this).addClass("zoom");
+        });
+
+        $(document).on('mouseleave', '.images img', function() {
+            $(this).removeClass("zoom");
+        });
+
+
+
+
+    })
+</script>
+{%endblock script%}

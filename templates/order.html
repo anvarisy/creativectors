@@ -1,0 +1,199 @@
+{% extends 'Root.html'%}{%load static%} {%block content%} {%csrf_token%}
+<div class="title text-center mt-4">
+    <div class="fancy-title title-center">
+        <h3>
+            <span>ORDER</span> LIST
+        </h3>
+    </div>
+</div>
+<div class="cart-page">
+</div>
+<div class="text-center" style="margin: 0 auto;">
+    <div id="pagination-container"></div>
+</div>
+{%endblock content%} {%block script%}
+<script>
+    $(document).ready(function() {
+        localStorage.removeItem('l')
+        let cek_token = localStorage.getItem('token')
+        let cek_user = localStorage.getItem('user')
+
+        if (localStorage.getItem("token")) {
+            $('#menu-login').hide()
+            $('#menu-register').hide()
+            $('#menu-logout').show()
+        } else {
+            $('#menu-register').show()
+            $('#menu-login').show()
+            $('#menu-logout').hide()
+        }
+
+        $('#menu-logout').click(function() {
+            localStorage.removeItem('token')
+            localStorage.removeItem('user')
+            location.replace("http://creativectors.com/home/index.html")
+        })
+
+        $.ajax({
+            url: 'http://api.creativectors.com/order/' + cek_user,
+            method: 'get',
+            headers: {
+                'Authorization': cek_token,
+            },
+            success: function(data) {
+                // console.log(data.length)
+                localStorage.setItem('l', data.length)
+                $.each(data, function(k, v) {
+                    let order_list = `
+                    <div class="order-list">
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                ORDER ID
+                            </div>
+                            <div class="col">
+                                ${v.order_id}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                USER
+                            </div>
+                            <div class="col content-style-cart">
+                                ${v.user_id}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                CATEGORY
+                            </div>
+                            <div class="col content-type-cart">
+                                ${v.category_name}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                STYLE
+                            </div>
+                            <div class="col content-type-cart">
+                                ${v.style_name}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                TYPE
+                            </div>
+                            <div class="col content-type-cart">
+                                ${v.type_name}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                ORDER IMAGE
+                            </div>
+                            <div class="col content-type-cart">
+                                    <img src="${v.order_image}">
+                                <div class="mt-2">
+                                    <a href="${v.order_image}" download>
+                                        <button type="button" class="btn btn-primary"><i
+                                        class="icon-download position-relative"></i></button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                INCLUDE FILE .AI, .SVG, .EPS
+                            </div>
+                            <div class="col content-type-cart">
+                                ${v.is_include_file}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                REMOVE ACCESORIES
+                            </div>
+                            <div class="col content-type-cart">
+                                ${v.is_remove_acc}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                EXTRA FAST ORDER 24
+                                HOURS
+                            </div>
+                            <div class="col content-type-cart">
+                                ${v.is_fast}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                PAYED
+                            </div>
+                            <div class="col content-type-cart">
+                                ${v.is_payed}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                FINISH
+                            </div>
+                            <div class="col content-type-cart">
+                                ${v.is_finish}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col list-order mb-4">
+                                ORDER RESULT
+                            </div>
+                            <div class="col content-type-cart">
+                                <img src="${v.order_result}">
+                                <div class="mt-2">
+                                    <a href="${v.order_result}" download>
+                                        <button type="button" class="btn btn-primary"><i
+                                        class="icon-download position-relative"></i></button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col tlist-order mb-4">
+                                TOTAL
+                            </div>
+                            <div class="col content-type-cart">
+                                ${v.total}
+                            </div>
+                        </div>
+                        </div>
+                        `
+
+                    $('.cart-page').append(order_list)
+
+                    var items = $('.order-list');
+                    var numItems = localStorage.getItem('l');
+                    var perPage = 4;
+                    // console.log(perPage)
+
+
+
+                    items.slice(perPage).hide();
+                    $('#pagination-container').pagination({
+                        items: numItems,
+                        itemsOnPage: perPage,
+                        prevText: "&laquo;",
+                        nextText: "&raquo;",
+                        onPageClick: function(pageNumber) {
+                            var showFrom = perPage * (pageNumber - 1);
+                            var showTo = showFrom + perPage;
+                            items.hide().slice(showFrom, showTo).show();
+                        }
+                    });
+                });
+            },
+
+        })
+
+
+
+    })
+</script>
+{%endblock script%}
